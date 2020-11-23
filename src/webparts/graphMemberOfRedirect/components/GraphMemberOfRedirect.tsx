@@ -9,7 +9,7 @@ export default class GraphMemberOfRedirect extends React.Component<IGraphMemberO
       <div className={ styles.graphMemberOfRedirect }>
         <div className={ styles.container }>
           <div className={ styles.row }>
-            Hello
+            Hello .. bye
             <div className={ styles.column }>
               <span className={ styles.title }>Welcome to SharePoint!</span>
               <p className={ styles.subTitle }>Customize SharePoint experiences using Web Parts.</p>
