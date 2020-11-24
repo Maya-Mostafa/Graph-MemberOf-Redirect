@@ -13,6 +13,8 @@ import { IGraphMemberOfRedirectProps } from './components/IGraphMemberOfRedirect
 
 export interface IGraphMemberOfRedirectWebPartProps {
   description: string;
+  empRedirectUrl : string;
+  leadRedirectUrl : string;
 }
 
 export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<IGraphMemberOfRedirectWebPartProps> {
@@ -21,7 +23,9 @@ export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<
     const element: React.ReactElement<IGraphMemberOfRedirectProps> = React.createElement(
       GraphMemberOfRedirect,
       {
-        description: this.properties.description
+        description: this.properties.description,
+        empRedirectUrl : this.properties.empRedirectUrl,
+        leadRedirectUrl : this.properties.leadRedirectUrl
       }
     );
 
@@ -40,15 +44,21 @@ export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<
     return {
       pages: [
         {
-          header: {
-            description: strings.PropertyPaneDescription
-          },
+          // header: {
+          //   description: strings.PropertyPaneDescription
+          // },
           groups: [
             {
               groupName: strings.BasicGroupName,
               groupFields: [
                 PropertyPaneTextField('description', {
                   label: strings.DescriptionFieldLabel
+                }),
+                PropertyPaneTextField('empRedirectUrl', {
+                  label: strings.EmpFieldLabel
+                }),
+                PropertyPaneTextField('leadRedirectUrl', {
+                  label: strings.LeadFieldLabel
                 })
               ]
             }

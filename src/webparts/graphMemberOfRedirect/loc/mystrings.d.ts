@@ -2,6 +2,8 @@ declare interface IGraphMemberOfRedirectWebPartStrings {
   PropertyPaneDescription: string;
   BasicGroupName: string;
   DescriptionFieldLabel: string;
+  EmpFieldLabel: string;
+  LeadFieldLabel: string;
 }
 
 declare module 'GraphMemberOfRedirectWebPartStrings' {

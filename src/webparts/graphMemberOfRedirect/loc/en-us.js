@@ -1,7 +1,9 @@
 define([], function() {
   return {
     "PropertyPaneDescription": "Description",
-    "BasicGroupName": "Group Name",
-    "DescriptionFieldLabel": "Description Field"
+    "BasicGroupName": "Web Part Settings",
+    "DescriptionFieldLabel": "Description",
+    "EmpFieldLabel" : "Employee Redirect URL",
+    "LeadFieldLabel": "Employer Redirect URL"
   }
 });
