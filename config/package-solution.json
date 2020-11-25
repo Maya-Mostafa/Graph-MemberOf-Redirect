@@ -12,7 +12,13 @@
       "privacyUrl": "",
       "termsOfUseUrl": "",
       "mpnId": ""
-    }
+    },
+    "webApiPermissionRequests": [
+      {
+        "resource": "Microsoft Graph",
+        "scope": "User.Read.All"
+      }
+    ]
   },
   "paths": {
     "zippedPackage": "solution/graph-member-of-redirect.sppkg"

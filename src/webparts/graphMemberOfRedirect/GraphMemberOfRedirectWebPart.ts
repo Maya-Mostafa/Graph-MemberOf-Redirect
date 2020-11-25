@@ -25,7 +25,8 @@ export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<
       {
         description: this.properties.description,
         empRedirectUrl : this.properties.empRedirectUrl,
-        leadRedirectUrl : this.properties.leadRedirectUrl
+        leadRedirectUrl : this.properties.leadRedirectUrl,
+        context : this.context
       }
     );
 
