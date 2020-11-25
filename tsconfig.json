@@ -25,7 +25,9 @@
     "lib": [
       "es5",
       "dom",
-      "es2015.collection"
+      "es2015.collection",
+      "DOM.Iterable",
+      "ES6"
     ]
   },
   "include": [
