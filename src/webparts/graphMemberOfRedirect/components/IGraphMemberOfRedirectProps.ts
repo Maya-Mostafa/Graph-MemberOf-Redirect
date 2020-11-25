@@ -4,5 +4,5 @@ export interface IGraphMemberOfRedirectProps {
   description: string;
   context : WebPartContext;
   empRedirectUrl : string;
-  leadRedirectUrl : string;
+  supRedirectUrl : string;
 }

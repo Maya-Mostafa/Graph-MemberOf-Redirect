@@ -4,6 +4,6 @@ define([], function() {
     "BasicGroupName": "Web Part Settings",
     "DescriptionFieldLabel": "Description",
     "EmpFieldLabel" : "Employee Redirect URL",
-    "LeadFieldLabel": "Employer Redirect URL"
+    "SupFieldLabel": "Supervisor Redirect URL"
   }
 });

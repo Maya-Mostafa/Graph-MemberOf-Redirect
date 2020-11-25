@@ -14,7 +14,7 @@ import { IGraphMemberOfRedirectProps } from './components/IGraphMemberOfRedirect
 export interface IGraphMemberOfRedirectWebPartProps {
   description: string;
   empRedirectUrl : string;
-  leadRedirectUrl : string;
+  supRedirectUrl : string;
 }
 
 export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<IGraphMemberOfRedirectWebPartProps> {
@@ -25,7 +25,7 @@ export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<
       {
         description: this.properties.description,
         empRedirectUrl : this.properties.empRedirectUrl,
-        leadRedirectUrl : this.properties.leadRedirectUrl,
+        supRedirectUrl : this.properties.supRedirectUrl,
         context : this.context
       }
     );
@@ -58,8 +58,8 @@ export default class GraphMemberOfRedirectWebPart extends BaseClientSideWebPart<
                 PropertyPaneTextField('empRedirectUrl', {
                   label: strings.EmpFieldLabel
                 }),
-                PropertyPaneTextField('leadRedirectUrl', {
-                  label: strings.LeadFieldLabel
+                PropertyPaneTextField('supRedirectUrl', {
+                  label: strings.SupFieldLabel
                 })
               ]
             }

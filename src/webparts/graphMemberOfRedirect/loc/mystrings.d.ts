@@ -3,7 +3,7 @@ declare interface IGraphMemberOfRedirectWebPartStrings {
   BasicGroupName: string;
   DescriptionFieldLabel: string;
   EmpFieldLabel: string;
-  LeadFieldLabel: string;
+  SupFieldLabel: string;
 }
 
 declare module 'GraphMemberOfRedirectWebPartStrings' {
