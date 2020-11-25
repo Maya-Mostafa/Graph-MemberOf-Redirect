@@ -6,8 +6,9 @@ import {redirect} from '../Services/SPOperations';
 
 export default function GraphMemberOfRedirect (props: IGraphMemberOfRedirectProps) {
 
-    redirect(props.context, props.empRedirectUrl, props.leadRedirectUrl);
-   
+    React.useEffect(()=>{
+      redirect(props.context, props.empRedirectUrl, props.supRedirectUrl);
+    });
 
     return (
       <div className={ styles.graphMemberOfRedirect }>
@@ -18,10 +19,8 @@ export default function GraphMemberOfRedirect (props: IGraphMemberOfRedirectProp
               <p className={ styles.subTitle }>Please edit the webpart to define the redirect pages required.</p>
               <p className={ styles.description }>{escape(props.description)}</p>
               <p className={ styles.description }><label>Employee Redirect URL: </label>{escape(props.empRedirectUrl)}</p>
-              <p className={ styles.description }><label>Employer Redirect URL: </label>{escape(props.leadRedirectUrl)}</p>
+              <p className={ styles.description }><label>Supervisor Redirect URL: </label>{escape(props.supRedirectUrl)}</p>
             </div>
-
-
           </div>
         </div>
       </div>
