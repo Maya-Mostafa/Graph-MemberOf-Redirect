@@ -28,20 +28,20 @@ export class UrlParams  {
     //Get a specific parameter value
     get = (param:string) : string =>{
         return this.urlParams.get(param);
-    };
+    }
 
     //Check for the Presence of a Parameter
     has = (param:string) : boolean =>{
         return this.urlParams.has(param);
-    };
+    }
 
     //Get all values as an array for a specific param
     getAll = (param:string) : string =>{
         return this.urlParams.getAll(param);
-    };
+    }
 
     //Add another value to a specific param
     add = (param:string, addedVal:string) : void =>{
         this.urlParams.append(param, addedVal);
-    };
+    }
 }

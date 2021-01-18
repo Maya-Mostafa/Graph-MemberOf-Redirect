@@ -3,7 +3,20 @@ import { MSGraphClient} from "@microsoft/sp-http";
 // import {UrlParams} from './UrlParams';
 
 const getGraphMemberOf = (context: WebPartContext) : Promise <string> =>{
-    let graphUrl = '/me/memberof';
+    let graphUrl = '/me/transitiveMemberOf/microsoft.graph.group';
+    
+    //test for supervisors
+    //let graphUrl = '/users/mark.marshall@peelsb.com/transitiveMemberOf/microsoft.graph.group';
+    //let graphUrl = '/users/rachel.marshall@peelsb.com/transitiveMemberOf/microsoft.graph.group';
+    //let graphUrl = '/users/tina.godsoe@peelsb.com/transitiveMemberOf/microsoft.graph.group';
+    //test for employee
+    //let graphUrl = '/users/humera.khan@peelsb.com/transitiveMemberOf/microsoft.graph.group';
+    
+    //let graphUrl = "/users/mark.marshall@peelsb.com/transitiveMemberOf/microsoft.graph.group?$count=true&$select=displayName&$filter=displayName eq 'hs incident reporting employer - dl - o365'";
+
+    //let graphUrl = '/me/memberof';
+    //https://graph.microsoft.com/v1.0/users/mark.marshall@peelsb.com/transitiveMemberOf/microsoft.graph.group?$count=true&$select=displayName&$filter=displayName eq 'hs incident reporting employer - dl - o365'
+
 
     return new Promise <string> (async(resolve, reject)=>{
         context.msGraphClientFactory
@@ -11,9 +24,13 @@ const getGraphMemberOf = (context: WebPartContext) : Promise <string> =>{
         .then((client: MSGraphClient)=>{
             client
                 .api(graphUrl)
+                .header('ConsistencyLevel', 'eventual')
+                .count(true)
+                .select('displayName')
+                .filter("displayName eq 'HS Incident Reporting employer - dl - o365'")
                 .get((error, response: any, rawResponse?: any)=>{
                     console.log(response);
-                    resolve(JSON.stringify(response));
+                    resolve(response);
                 });
         });
     });
@@ -29,14 +46,21 @@ export const redirect = (context: WebPartContext, empUrl: string, supUrl: string
     let stopRedirect : boolean = isUrlParam('stop');
     
     if(!stopRedirect){
-        document.getElementsByTagName("html")[0].hidden = true;
-        getGraphMemberOf(context).then((response)=>{
-            if(response.indexOf("HS Incident Reporting employer - dl") != -1){
-                console.log("supervisor");
+        getGraphMemberOf(context).then((response: any)=>{
+            if (response.value.length !== 0){
                 window.location.href = supUrl;
-            }else{
-                console.log("employee or not");
+            }
+            else{
                 window.location.href =  empUrl;
+            }
+        });
+    }else{        
+        document.getElementsByTagName("html")[0].style.display = "block";
+        getGraphMemberOf(context).then((response: any)=>{
+            if(response.value.length !== 0){
+                console.log("You are: Supervisor");
+            }else{
+                console.log("You are : Employee or Undefined");
             }
         });
     }
